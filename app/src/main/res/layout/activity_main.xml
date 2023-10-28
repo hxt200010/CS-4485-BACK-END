@@ -1,0 +1,58 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#06356E"
+    tools:context=".MainActivity">
+
+
+    <com.example.back_end_discard.GlitchTextView
+        android:id="@+id/glitchTextView"
+        android:layout_width="367dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="97dp"
+        android:autoSizeTextType="uniform"
+        android:background="@drawable/text_gradient"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="1"
+        android:text="DISCARD"
+        android:textColor="#ffffff"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/singleButton"
+        android:layout_width="309dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_selector"
+        android:text="SINGLE"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@id/multiplayerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glitchTextView" />
+
+    <Button
+        android:id="@+id/multiplayerButton"
+        android:layout_width="309dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/fancy_button"
+        android:text="MULTIPLAYER"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singleButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

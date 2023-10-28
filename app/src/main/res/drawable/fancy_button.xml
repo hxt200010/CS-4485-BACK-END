@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Shadow layer -->
+            <item >
+                <shape>
+                    <solid android:color="#55000000"/>
+                    <corners android:radius="10dp"/>
+                    <padding android:bottom="2dp" android:right="2dp" android:left="1dp" android:top="1dp"/>
+                </shape>
+            </item>
+            <!-- Button layer -->
+            <item>
+                <shape>
+                    <solid android:color="#D3D3D3"/>
+                    <corners android:radius="10dp"/>
+                    <stroke android:color="#BB0000" android:width="2dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Default state -->
+    <item>
+        <layer-list>
+            <!-- Shadow layer -->
+            <item >
+                <shape>
+                    <solid android:color="#33000000"/>
+                    <corners android:radius="10dp"/>
+                    <padding android:bottom="2dp" android:right="2dp" android:left="1dp" android:top="1dp"/>
+                </shape>
+            </item>
+            <!-- Button layer -->
+            <item>
+                <shape>
+                    <gradient android:startColor="#3E4A59" android:endColor="#121212" android:angle="270"/>
+                    <corners android:radius="10dp"/>
+                    <stroke android:color="#BB0000" android:width="2dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
