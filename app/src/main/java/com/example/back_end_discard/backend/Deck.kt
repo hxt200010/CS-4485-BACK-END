@@ -1,6 +1,5 @@
 package com.example.back_end_discard.backend
 
-// Deck.kt
 import java.util.Collections.shuffle
 
 class Deck {
@@ -21,3 +20,4 @@ class Deck {
 
     fun draw(): Card = cards.removeAt(cards.size - 1)
 }
+

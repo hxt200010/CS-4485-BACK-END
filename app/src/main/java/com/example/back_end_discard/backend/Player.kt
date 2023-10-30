@@ -1,19 +1,17 @@
 package com.example.back_end_discard.backend
 
-// Player.kt
 class Player(val name: String) {
-    var hand: MutableList<Card> = mutableListOf()
+    val hand: MutableList<Card> = mutableListOf()
 
-    fun playCard(card: Card): Card {
+    fun playCard(card: Card) {
         hand.remove(card)
-        return card
     }
 
-    fun addCardToHand(card: Card) {
+    fun drawCard(card: Card) {
         hand.add(card)
     }
 
-    fun drawCard(deck: Deck) {
-        hand.add(deck.draw())
+    fun hasPlayableCard(currentCard: Card): Boolean {
+        return hand.any { it.suit == currentCard.suit || it.value == currentCard.value }
     }
 }

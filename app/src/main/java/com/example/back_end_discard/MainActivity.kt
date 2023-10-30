@@ -13,8 +13,12 @@ import com.example.back_end_discard.GlitchTextView
 import com.example.back_end_discard.R
 
 import android.widget.Button
+import com.example.back_end_discard.backend.Game
+import com.example.back_end_discard.backend.Player
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var game: Game
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         glitchTextView.setOnClickListener {
             glitchTextView.triggerGlitch()
         }
+
+        // Example setup
+        val player1 = Player("Player 1")
+        val player2 = Player("Player 2")
+        game = Game(listOf(player1, player2))
+
         val singleButton: Button = findViewById(R.id.singleButton)
         val multiplayerButton: Button = findViewById(R.id.multiplayerButton)
 
@@ -45,6 +55,8 @@ class MainActivity : AppCompatActivity() {
             // Code to start the multiplayer mode
             startMultiplayerMode()
         }
+
+
 
     }
 
