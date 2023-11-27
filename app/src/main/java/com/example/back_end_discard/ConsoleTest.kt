@@ -17,6 +17,8 @@ fun main() {
         }
     }
 
+    var specialCardDrawn = false // Add this variable to track if a special card was drawn
+
     while (true) {
         val currentPlayer = game.players[game.currentPlayerIndex]
         val cardsLeft = game.deck.cards.size // Get the number of cards left in the deck
@@ -35,7 +37,7 @@ fun main() {
                 if (game.handleSpecialCardAnnouncement(drawnCard)) {
                     println("Special card drawn! Next player will be affected.")
                 }
-                !currentPlayer.hasPlayableCard(game.currentCard)
+                true // End the current player's turn after drawing a card
             } else {
                 println("You have a playable card. You must play it.")
                 false
@@ -49,6 +51,7 @@ fun main() {
                     // Check if a special card is played and announce the effect
                     if (game.handleSpecialCardAnnouncement(chosenCard)) {
                         println("Special card played! Next player will be affected.")
+                        specialCardDrawn = true // Set the flag to true
                     }
                     true
                 } else {
@@ -64,10 +67,14 @@ fun main() {
         if (validMoveMade) {
             println("--- Next Turn ---")
             game.nextTurn()
+            specialCardDrawn = false // Reset the flag at the start of the next turn
         }
 
         if (currentPlayer.hand.isEmpty()) {
+            val cardCounts = game.countCardsForPlayers()
+            val winner = cardCounts.minByOrNull { it.value }?.key
             println("${currentPlayer.name} wins the game with $cardsLeft cards remaining in the deck!")
+            println("Player with the least cards is ${winner?.name} with ${cardCounts[winner]} cards.")
             break
         }
     }
