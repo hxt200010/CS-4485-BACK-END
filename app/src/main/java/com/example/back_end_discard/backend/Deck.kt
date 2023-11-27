@@ -18,6 +18,12 @@ class Deck {
         shuffle(cards)
     }
 
-    fun draw(): Card = cards.removeAt(cards.size - 1)
+    fun draw(): Card {
+        if (cards.isEmpty()) {
+            // Throw an exception, return a special value, or reshuffle the discard pile into the deck
+            throw IllegalStateException("Cannot draw from an empty deck")
+        }
+        return cards.removeAt(cards.size - 1)
+    }
 }
 
