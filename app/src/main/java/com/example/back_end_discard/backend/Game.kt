@@ -38,7 +38,7 @@ class Game(val players: List<Player>) {
             }
             Value.KING -> { // Draw Two
                 val nextPlayerIndex = (currentPlayerIndex + playDirection + players.size) % players.size
-                println("King drawn or played! PLayer${nextPlayerIndex+1}  will draw two cards.")
+                println("King drawn or played! PLayer ${nextPlayerIndex+1}  will draw two cards.")
                 players[nextPlayerIndex].drawCard(deck.draw())
                 players[nextPlayerIndex].drawCard(deck.draw())
                 nextTurn()
@@ -53,13 +53,13 @@ class Game(val players: List<Player>) {
         when (card.value) {
             Value.JACK -> {
                 // When a Jack is drawn or played, skip the next player's turn
-                val nextPlayer = players[(currentPlayerIndex + playDirection + players.size + 1) % players.size]
-                println("Jack drawn or played! ${nextPlayer.name} will be skipped.")
+                val nextPlayer = players[(currentPlayerIndex + playDirection + players.size-1) % players.size]
+                println("Jack played! ${nextPlayer.name} will be skipped.")
                 return true
             }
             Value.QUEEN -> {
                 // When a Queen is drawn or played, reverse the play direction
-                println("Queen drawn or played! The play direction is reversed.")
+                println("Queen played! The play direction is reversed.")
                 return true
             }
             Value.KING -> {
@@ -76,6 +76,14 @@ class Game(val players: List<Player>) {
             cardCounts[player] = player.hand.size
         }
         return cardCounts
+    }
+
+    // Add this method to print out the card value for each player
+    fun printCardValues() {
+        players.forEach { player ->
+            val totalValue = player.hand.sumBy { it.value.points }
+            println("${player.name}'s total card value: $totalValue")
+        }
     }
 
 }
